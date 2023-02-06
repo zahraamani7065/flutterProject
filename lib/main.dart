@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(backgroundColor: Colors.black38),
         textTheme:
         TextTheme(bodyText1: TextStyle(fontSize: 20,color: Colors.white, )),
-
+        // buttonTheme: ButtonTheme(child:  OutlinedButton.styleFrom{Colors.red} ),
 
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
@@ -31,7 +31,6 @@ class MyHomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(title: Text('flutter'),),
       body:
          Column(
@@ -60,29 +59,28 @@ class MyHomePage extends StatelessWidget{
           Padding(
             padding: const EdgeInsets.all(14),
             child: SizedBox(
-              width: 360,
-              height: 60,
-              child:  ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: ElevatedButton (onPressed:(){print('clicked');}, child: Text('خرید اشتراک',style: Theme.of(context).textTheme.bodyText1,),
-                    style: OutlinedButton.styleFrom(backgroundColor: Colors.red,
 
-                    ),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height/15,
+                child: InkWell(
+                  onTap: (){
+                    print('clicked');
+                  },
+                  child: ElevatedButton (onPressed:null, child: Text('خرید اشتراک',style: Theme.of(context).textTheme.bodyText1,),
+                      style: OutlinedButton.styleFrom(shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                           backgroundColor: Colors.red,
 
+                      ),
 
-
-                ),
-              )
-              ,
+                  ),
+                )
             ),
           ),
 
-        ],
-
-        ),
-
-
-    );
+        ]
+         ) );
 
   }
 }
